@@ -44,22 +44,28 @@ app.use(express.json())
 
 app.get("/", async (req, res) => { // get the user name
     getUser((user) => {
-        res.send(user.name)
+        res.send({ "name": user.name })
     })
 })
 
 app.get("/points", async (req, res) => { // get the point balance
     getUser((user) => {
-        res.send(String(user.points))
+        res.send({ "points": String(user.points) })
     })
 })
 
-app.post("/transactions", (req, res) => { // add a transaction
+app.get("/user", async (req, res) => {
+    getUser((user) => {
+        res.send({ "user": user })
+    })
+})
+
+app.post("/transactions", async (req, res) => { // add a transaction
     getUser((user) => {
         user.transactions.push(req.body)
         user.points = Number(user.points) + (Number(req.body.amount) / 10)
         setUser(user)
-        res.send({ "status": "done" })
+        res.send({ "user": user })
     })
 })
 
