@@ -72,7 +72,7 @@
     text-align: center;
     font-size: 48px;
     font-weight: bold;
-    color: greenyellow;
+    color: #00E9BA;
 }
 
 .big-button {
@@ -88,6 +88,40 @@
     font-family: "Roboto";
     font-weight: bold;
     font-size: 9px;
+    letter-spacing: 1px;
+}
+.end-link {
+    padding: 20px;
+    border: 0;
+    background: rgb(218, 224, 235);
+    color: #323C50;
+    outline: 0;
+    border-radius: 10px;
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+    width: 100;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-decoration-line: none;
+    text-align: center;
+}
+.coin-button {
+    padding: 20px;
+    border: 0;
+    background: rgb(218, 224, 235);
+    color: #323C50;
+    outline: 0;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 30px;
+    height: 150;
+    width: 150;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 18px;
     letter-spacing: 1px;
 }
 .congrats {
