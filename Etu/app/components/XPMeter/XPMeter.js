@@ -14,20 +14,20 @@ export default class XPMeter extends Component {
         }
     }
     componentDidMount() {
+    }
+    render() {
         Animated.timing(
             this._width,
             {
-                toValue: this.props.width,
+                toValue: Math.floor(this.props.width),
                 duration: 500,
                 delay: 150,
                 easing: Easing.bezier(.17,.67,0,.99)
             }
         ).start()
-    }
-    render() {
         return (
             <View style={styles.xpWrapper}>
-                <Title fontSize={18} style={styles.levelTitle}>Level 1</Title>
+                <Title fontSize={18} style={styles.levelTitle}>Level {this.props.level}</Title>
                 <View style={styles.barWrapper}>
                     <Animated.View style={[styles.barInner, {
                         width: this._width.interpolate({
@@ -37,6 +37,7 @@ export default class XPMeter extends Component {
                     }]}>
                     </Animated.View>
                 </View>
+                <Text style={styles.progressText}>{Math.floor(this.props.width)}%</Text>
             </View>
         )
     }
