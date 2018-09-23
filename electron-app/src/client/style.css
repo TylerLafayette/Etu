@@ -4,19 +4,101 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    color: #323C50;
 }
 .main-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.main-wrapper.hidden {
+    opacity: 0;
+    transform: scale(0.7);
+    pointer-events: none;
 }
 .etu-wrapper {
     box-sizing: border-box;
     padding: 30px;
     background-color: #EFF4FD;
     border-radius: 50%;
+    animation: float 3s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 .etu-wrapper svg {
     width: 75px;
     height: 75px;
+}
+.absolute-text {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.absolute-text .prompt {
+    font-size: 24px;
+    font-weight: bold;
+    color: #323C50;
+}
+
+.cash-text {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.collected-text {
+    display: block;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: greenyellow;
+}
+
+.big-button {
+    padding: 20px;
+    border: 0;
+    background: rgb(218, 224, 235);
+    color: #323C50;
+    outline: 0;
+    border-radius: 10px;
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+.congrats {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+.xp-and-stuff {
+    text-align: center;
+    display: block;
+    font-size: 20px;
 }
