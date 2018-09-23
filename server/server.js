@@ -69,6 +69,22 @@ app.post("/transactions", async (req, res) => { // add a transaction
     })
 })
 
+app.post("/xp", async (req, res) => {
+    getUser((user) => {
+        user.xp = req.body.value
+        setUser(user)
+        res.send({ "user": user })
+    })
+})
+
+app.post("/level", async (req, res) => {
+    getUser((user) => {
+        user.level = req.body.value
+        setUser(user)
+        res.send({ "user": user })
+    })
+})
+
 app.listen(port, async () => {
     console.log("running on port " + port)
     console.log("================================")
