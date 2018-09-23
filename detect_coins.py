@@ -158,8 +158,7 @@ if circles is not None:
         material = predictMaterial(roi)
         materials.append(material)
 
-        o = open("db", "w")
-        o.write(materials)
+
 
         # write masked coin to file
         if False:
@@ -253,7 +252,10 @@ cv2.putText(output, "Coins detected: {}, EUR {:2}".format(count, total / 100),
 cv2.putText(output, "Classifier mean accuracy: {}%".format(score),
             (5, output.shape[0] - 8), cv2.FONT_HERSHEY_PLAIN,
             1.0, (0, 0, 255), lineType=cv2.LINE_AA)
-
+f = open("db", "a")
+f.write(total/100)
 # show output and wait for key to terminate program
 cv2.imshow("Output", np.hstack([image, output]))
 cv2.waitKey(0)
+
+print(total/100+"")
