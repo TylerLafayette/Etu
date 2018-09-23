@@ -19,5 +19,11 @@ export default StyleSheet.create({
         height: 30,
         backgroundColor: "#00E9BA",
         borderRadius: 20,
+    },
+    progressText: {
+        textAlign: "center",
+        paddingTop: 10,
+        fontWeight: "bold",
+        color: "#7D92B7"
     }
 })

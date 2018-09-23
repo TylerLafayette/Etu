@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { View } from "react-native"
 
 import FaceSvg from "../FaceSvg"
+import FaceHappySvg from "../FaceHappySvg"
 
 export default class FaceCircle extends Component {
     render() {
@@ -14,7 +15,7 @@ export default class FaceCircle extends Component {
                 padding: 25,
                 boxSizing: "border-box"
             }}>
-                <FaceSvg style={{width: 70, height: 70}} />
+                {this.props.happy ? <FaceHappySvg style={{width: 70, height: 70}} /> : <FaceSvg style={{width: 70, height: 70}} />}
             </View>
         )
     }
