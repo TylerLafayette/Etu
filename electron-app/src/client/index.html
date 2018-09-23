@@ -2,12 +2,12 @@
     <head>
         <title>etu portal</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet">
     </head>
     <body>
-        <div class="main-wrapper">
-            <div class="etu-wrapper">
+        <div class="main-wrapper" id="step-1">
+            <div class="etu-wrapper" id="main-click">
                 <svg version="1.1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                 x="0px" y="0px" width="412px" height="513px" viewBox="0 0 412 513" style="enable-background:new 0 0 412 513;"
                 xml:space="preserve">
                     <style type="text/css">
@@ -21,6 +21,30 @@
                     <polyline class="st0" points="205,86 205,250 288,250 "/>
                 </svg>
             </div>
+            <div class="absolute-text">
+                <span class="prompt">Tap me to begin!</span>
+            </div>
         </div>
+        <div class="main-wrapper hidden" id="step-2">
+            <div class="wrapper">
+                <span class="cash-text">Now collecting coins!</span>
+                <span id="amount-collected" class="collected-text">$0.00</span>
+                <div class="add-buttons">
+                    <button class="coin" id="quarter">quarter</button>
+                    <button class="coin" id="dime">dime</button>
+                    <button class="coin" id="nickel">nickel</button>
+                    <button class="coin" id="penny">penny</button>
+                </div>
+                <button id="stop-collecting" class="big-button">I'M DONE!</button>
+            </div>
+        </div>
+        <div class="main-wrapper hidden" id="step-3">
+            <div class="wrapper">
+                <span id="congrats" class="congrats">Good work! You just donated $0.00!</span>
+                <span id="xp" class="xp-and-stuff">You earned 0 xp and 0 gems.</span>
+                <a href="/">Restart</a>
+            </div>
+        </div>
+        <script src="./main.js"></script>
     </body>
 </html>
