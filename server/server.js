@@ -14,27 +14,53 @@ admin.initializeApp({
     databaseURL: "https://etu-db.firebaseio.com"
 })
 
+// database refs
 const db = admin.database()
-const user = db.ref("/user")
-const transactions = db.ref("/user/transactions")
-const points = db.ref("/user/points")
+const userRef = db.ref("/user")
+
+
+const getUser = (callback) => {
+    userRef.once("value", async (snapshot) => {
+        callback(snapshot.val())
+    })
+}
+
+const setUser = (data) => {
+    userRef.set(data)
+}
+
+
+/*
+getUser((user) => {
+    user.transactions = [{ "date": "today", "amount": 0 }]
+    setUser(user)
+})
+*/
 
 // express config
 app.use(bodyParser.json())
 app.use(express.json())
 
-app.get("/", async (req, res) => {
-    res.send("index")
-})
 
-app.get("/points", async (req, res) => {
-    points.on("value", async (snapshot) => {
-        res.send(String(snapshot.val()))
+app.get("/", async (req, res) => { // get the user name
+    getUser((user) => {
+        res.send(user.name)
     })
 })
 
-app.post("/transactions", async (req, res) => {
-    transactions.push().set(req.body) // ?????????
+app.get("/points", async (req, res) => { // get the point balance
+    getUser((user) => {
+        res.send(String(user.points))
+    })
+})
+
+app.post("/transactions", (req, res) => { // add a transaction
+    getUser((user) => {
+        user.transactions.push(req.body)
+        user.points = Number(user.points) + (Number(req.body.amount) / 10)
+        setUser(user)
+        res.send({ "status": "done" })
+    })
 })
 
 app.listen(port, async () => {
