@@ -4,6 +4,9 @@ const app = express()
 const port = 3000
 var bodyParser = require("body-parser")
 
+// authorize.net
+const chargeCreditCard = require("./authnet/chargeCreditCard.js").chargeCreditCard
+
 // firebase imports
 const admin = require("firebase-admin")
 const serviceAccount = require("./serviceAccount.json")
@@ -29,6 +32,13 @@ const setUser = (data) => {
     userRef.set(data)
 }
 
+/*
+getUser((user) => {
+    chargeCreditCard(user, (res) => {
+        console.log(res)
+    })
+})
+*/
 
 /*
 getUser((user) => {
